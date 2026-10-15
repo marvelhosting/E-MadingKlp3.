@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Media Sosial dan Dampaknya</title>
+
+<meta name="description" content="Website edukasi mengenai pengertian media sosial, dampak positif dan negatif, tips penggunaan bijak, serta kuis interaktif.">
+
+<style>
+/* =========================
+   PENGATURAN DASAR
+========================= */
+:root {
+  --primary: #2878e8;
+  --primary-dark: #1558b0;
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --text: #172033;
+  --muted: #64748b;
+  --border: #dbe4f0;
+  --shadow: 0 8px 25px rgba(20, 40, 80, 0.08);
+}
+
+body.dark-mode {
+  --background: #101827;
+  --surface: #1e293b;
+  --text: #f1f5f9;
+  --muted: #cbd5e1;
+  --border: #475569;
+  --shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  transition: none;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 75px 0;
+}
+
+section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.25;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.section-intro {
+  max-width: 750px;
+  margin: 0 auto 35px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.section-alt {
+  background: var(--surface);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #60a5fa;
+  outline-offset: 3px;
+}
+
+/* =========================
+   PROGRESS BAR
+========================= */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--primary);
+  z-index: 3000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  width: min(1200px, 94%);
+  margin: auto;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon-button {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* =========================
+   TOMBOL
+========================= */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  padding: 100px 0;
+  background:
+    radial-gradient(circle at 85% 20%, #60a5fa 0, transparent 30%),
+    linear-gradient(135deg, #102b55, #1768c7 60%, #2878e8);
+  color: white;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero-label {
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.45);
+  padding: 6px 15px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: #e5efff;
+  font-size: 1.08rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero .btn {
+  background: white;
+  color: #1558b0;
+}
+
+.hero .btn-outline {
+  border-color: white;
+  color: white;
+  background: transparent;
+}
+
+/* =========================
+   KARTU
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s, box-shadow 0.25s;
+  min-width: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(40, 120, 232, 0.12);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(40, 120, 232, 0.12);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 30px;
+  background: rgba(40, 120, 232, 0.12);
+  color: var(--primary);
+}
+
+/* =========================
+   PENGERTIAN
+========================= */
+.definition-box {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 30px;
+  border-left: 5px solid var(--primary);
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.definition-box p {
+  color: var(--muted);
+}
+
+.search-wrap {
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* =========================
+   DAMPAK POSITIF DAN NEGATIF
+========================= */
+.impact-number {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.positive .impact-number {
+  background: #16a34a;
+}
+
+.negative .impact-number {
+  background: #dc2626;
+}
+
+.impact-card h3 {
+  margin-bottom: 8px;
+}
+
+.impact-card p {
+  margin-bottom: 9px;
+}
+
+.detail-label {
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* =========================
+   PERBANDINGAN
+========================= */
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table th {
+  background: var(--primary);
+  color: white;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================
+   TIPS
+========================= */
+.tip-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* =========================
+   GRAFIK
+========================= */
+.chart {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 28px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.chart-row {
+  margin: 22px 0;
+}
+
+.chart-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.bar {
+  height: 16px;
+  background: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2878e8, #60a5fa);
+  border-radius: 20px;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+/* =========================
+   FAKTA DAN MITOS
+========================= */
+.fact-card {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.fact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.fact-buttons button {
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+#fact-feedback {
+  margin: 20px 0;
+  color: var(--muted);
+}
+
+/* =========================
+   KUIS
+========================= */
+.quiz-box {
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.quiz-progress {
+  height: 10px;
+  width: 100%;
+  background: var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#quiz-progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s;
+}
+
+#quiz-number {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+#quiz-question {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+#quiz-answers {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+#quiz-answers button {
+  padding: 14px 16px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--text);
+  transition: 0.2s;
+}
+
+#quiz-answers button:not(:disabled):hover {
+  border-color: var(--primary);
+  background: rgba(40, 120, 232, 0.08);
+}
+
+#quiz-answers button:disabled {
+  cursor: default;
+}
+
+#quiz-answers button.correct {
+  border: 2px solid #16a34a;
+  background: #dcfce7;
+  color: #14532d;
+}
+
+#quiz-answers button.wrong {
+  border: 2px solid #dc2626;
+  background: #fee2e2;
+  color: #7f1d1d;
+}
+
+.quiz-feedback {
+  margin: 18px 0;
+  color: var(--muted);
+}
+
+.quiz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.quiz-controls button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+}
+
+.quiz-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#quiz-result {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* =========================
+   KELOMPOK
+========================= */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.member-card {
+  padding: 25px 12px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--surface);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s;
+}
+
+.member-card:hover {
+  transform: translateY(-7px);
+}
+
+.avatar {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2878e8, #60a5fa);
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.member-card h3 {
+  font-size: 1rem;
+}
+
+.member-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   SUMBER
+========================= */
+.source-card a {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* =========================
+   KESIMPULAN
+========================= */
+.conclusion {
+  background: linear-gradient(135deg, #102b55, #1768c7);
+  color: white;
+  text-align: center;
+}
+
+.conclusion p {
+  max-width: 850px;
+  margin: 18px auto;
+  color: #e5efff;
+}
+
+.conclusion h3 {
+  margin-top: 28px;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #0b1220;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+}
+
+footer p {
+  margin: 5px 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   TOMBOL KEMBALI KE ATAS
+========================= */
+.back-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow);
+  display: none;
+  z-index: 1500;
+}
+
+.back-top.show {
+  display: block;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+.reveal {
+  opacity: 1;
+  transform: none;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1050px) {
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+
+  .member-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  .nav-container {
+    flex-wrap: wrap;
+    padding: 12px 0;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-bottom: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(40, 120, 232, 0.1);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  section {
+    padding: 55px 0;
+  }
+
+  .hero {
+    padding: 75px 0;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .member-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quiz-box {
+    padding: 20px;
+  }
+
+  .chart {
+    padding: 18px;
+  }
+
+  .definition-box {
+    padding: 22px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INDIKATOR KEMAJUAN MEMBACA -->
+<div id="reading-progress"></div>
+
+<!-- =========================
+     NAVIGASI
+========================= -->
+<header class="navbar">
+  <div class="nav-container">
+
+    <a class="logo" href="#beranda">MEDIA SOSIAL</a>
+
+    <nav aria-label="Navigasi utama">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#pengertian">Pengertian</a></li>
+        <li><a href="#positif">Dampak Positif</a></li>
+        <li><a href="#negatif">Dampak Negatif</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#statistik">Grafik</a></li>
+        <li><a href="#kuis">Kuis</a></li>
+        <li><a href="#anggota">Kelompok</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button
+        type="button"
+        class="icon-button"
+        id="theme-toggle"
+        aria-label="Ganti mode tampilan"
+      >🌙</button>
+
+      <button
+        type="button"
+        class="icon-button menu-toggle"
+        id="menu-toggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+      >☰</button>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- =========================
+     BERANDA
+========================= -->
+<section id="beranda" class="hero">
+  <div class="container hero-content">
+
+    <span class="hero-label">WEBSITE EDUKASI</span>
+
+    <h1>Media Sosial dan Dampaknya</h1>
+
+    <p>
+      Mengenal pengaruh media sosial terhadap kehidupan sehari-hari,
+      mulai dari komunikasi dan pendidikan hingga tantangan privasi,
+      kesehatan digital, dan penyebaran informasi.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#pengertian">Jelajahi Sekarang</a>
+      <a class="btn btn-outline" href="#kuis">Mulai Kuis</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     PENGERTIAN
+========================= -->
+<section id="pengertian" class="reveal">
+  <div class="container">
+
+    <h2>Apa Itu Media Sosial?</h2>
+
+    <p class="section-intro">
+      Kenali pengertian, perkembangan, dan berbagai bentuk media sosial
+      yang digunakan dalam kehidupan modern.
+    </p>
+
+    <div class="search-wrap">
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Cari informasi, misalnya privasi atau pendidikan..."
+        aria-label="Cari informasi di dalam website"
+      >
+    </div>
+
+    <div class="definition-box">
+      <h3>Pengertian Media Sosial</h3>
+      <p>
+        Media sosial adalah layanan digital yang memungkinkan penggunanya
+        membuat, membagikan, dan berinteraksi dengan konten maupun pengguna
+        lain. Media sosial dapat digunakan untuk berkomunikasi, belajar,
+        memperoleh informasi, membangun komunitas, serta mengembangkan
+        kreativitas.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card searchable">
+        <div class="card-icon">📜</div>
+        <h3>Sejarah Singkat</h3>
+        <p>
+          Media sosial berkembang dari layanan komunikasi dan komunitas
+          daring menjadi platform yang mendukung teks, gambar, video,
+          siaran langsung, dan komunikasi secara real time.
+        </p>
+      </article>
+
+      <article class="card searchable">
+        <div class="card-icon">💬</div>
+        <h3>Media Sosial untuk Komunikasi</h3>
+        <p>
+          Platform komunikasi memungkinkan pengguna bertukar pesan,
+          melakukan panggilan, dan membentuk kelompok berdasarkan
+          kebutuhan atau minat bersama.
+        </p>
+      </article>
+
+      <article class="card searchable">
+        <div class="card-icon">🎬</div>
+        <h3>Media Sosial Berbasis Konten</h3>
+        <p>
+          Platform berbagi foto, video, tulisan, dan siaran langsung
+          memungkinkan pengguna menyampaikan ide dan menikmati karya
+          orang lain.
+        </p>
+      </article>
+
+      <article class="card searchable">
+        <div class="card-icon">👥</div>
+        <h3>Media Sosial Berbasis Komunitas</h3>
+        <p>
+          Komunitas daring membantu orang dengan minat yang sama
+          berdiskusi, bertukar pengalaman, dan bekerja sama.
+        </p>
+      </article>
+
+      <article class="card searchable">
+        <div class="card-icon">📚</div>
+        <h3>Media Sosial untuk Pendidikan</h3>
+        <p>
+          Pengguna dapat memanfaatkan konten edukasi, diskusi kelompok,
+          dan komunitas belajar untuk memperluas pengetahuan.
+        </p>
+      </article>
+
+      <article class="card searchable">
+        <div class="card-icon">🛍️</div>
+        <h3>Media Sosial untuk Bisnis</h3>
+        <p>
+          Pelaku usaha dapat memperkenalkan produk, berinteraksi dengan
+          pelanggan, dan menyampaikan informasi layanan.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     DAMPAK POSITIF
+========================= -->
+<section id="positif" class="section-alt reveal">
+  <div class="container">
+
+    <h2>Dampak Positif Media Sosial</h2>
+
+    <p class="section-intro">
+      Jika digunakan secara tepat, media sosial dapat mendukung
+      komunikasi, pendidikan, kreativitas, dan kehidupan sosial.
+    </p>
+
+    <div class="cards">
+
+      <article class="card impact-card positive searchable">
+        <span class="impact-number">1</span>
+        <h3>Mempermudah Komunikasi</h3>
+        <p>
+          <strong class="detail-label">Penjelasan:</strong>
+          Pengguna dapat berkomunikasi dengan keluarga, teman, atau rekan
+          yang berada jauh.
+        </p>
+        <p>
+          <strong class="detail-label">Contoh:</strong>
+          Mengirim pesan kepada keluarga yang tinggal di luar kota.
+        </p>
+      </article>
+
+      <article class="card impact-card positive searchable">
+        <span class="impact-number">2</span>
+        <h3>Memperluas Wawasan</h3>
+        <p>
+          <strong class="detail-label">Penjelasan:</strong>
+          Pengguna dapat menemukan informasi tentang ilmu pengetahuan,
+          budaya, teknologi, dan peristiwa dunia.
+        </p>
+        <p>
+          <strong class="detail-label">Contoh:</strong>
+          Mengikuti akun edukasi dan membaca penjelasan materi sekolah.
+        </p>
+      </article>
+      <article class="card impact-card positive searchable"><span class="impact-number">3</span><h3>Sarana Belajar</h3><p>Materi pelajaran dapat dipelajari melalui video, infografik, dan diskusi.</p><p><strong class="detail-label">Contoh:</strong> Menonton video penjelasan materi sekolah.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">4</span><h3>Mengembangkan Kreativitas</h3><p>Pengguna dapat membagikan karya dan memperoleh masukan.</p><p><strong class="detail-label">Contoh:</strong> Mengunggah desain, foto, atau tulisan buatan sendiri.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">5</span><h3>Memperluas Pertemanan</h3><p>Media sosial membantu orang terhubung dengan komunitas yang memiliki minat sama.</p><p><strong class="detail-label">Contoh:</strong> Bergabung dengan komunitas membaca atau olahraga.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">6</span><h3>Mendukung Promosi Usaha</h3><p>Usaha kecil dapat mengenalkan produk kepada calon pelanggan.</p><p><strong class="detail-label">Contoh:</strong> Membagikan katalog produk melalui akun toko.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">7</span><h3>Menyebarkan Informasi Cepat</h3><p>Informasi penting dapat menjangkau banyak orang dalam waktu singkat.</p><p><strong class="detail-label">Contoh:</strong> Membagikan pengumuman kegiatan sekolah.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">8</span><h3>Menunjang Kolaborasi</h3><p>Kelompok dapat berdiskusi dan menyusun pekerjaan bersama dari lokasi berbeda.</p><p><strong class="detail-label">Contoh:</strong> Membuat rencana tugas kelompok melalui grup kelas.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">9</span><h3>Membangun Jejaring</h3><p>Pengguna bisa mengenal orang dengan pengalaman dan keahlian berbeda.</p><p><strong class="detail-label">Contoh:</strong> Mengikuti diskusi komunitas desain.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">10</span><h3>Menyalurkan Hobi</h3><p>Komunitas daring memberi ruang untuk berbagi minat dan pengalaman.</p><p><strong class="detail-label">Contoh:</strong> Berbagi tips menggambar atau memasak.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">11</span><h3>Meningkatkan Kepedulian</h3><p>Kampanye sosial dapat membantu masyarakat memahami suatu isu.</p><p><strong class="detail-label">Contoh:</strong> Membagikan informasi kegiatan kebersihan lingkungan.</p></article>
+      <article class="card impact-card positive searchable"><span class="impact-number">12</span><h3>Memberi Hiburan</h3><p>Konten yang sesuai dapat menjadi hiburan setelah menyelesaikan kewajiban.</p><p><strong class="detail-label">Contoh:</strong> Menonton video lucu dalam waktu yang teratur.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="negatif" class="reveal">
+  <div class="container"><h2>Dampak Negatif Media Sosial</h2><p class="section-intro">Risiko dapat dikurangi dengan kebiasaan digital yang sehat dan sikap kritis.</p><div class="cards">
+    <article class="card impact-card negative searchable"><span class="impact-number">1</span><h3>Kecanduan dan Lupa Waktu</h3><p>Penggunaan berlebihan bisa mengganggu kegiatan harian.</p><p><strong class="detail-label">Pencegahan:</strong> Atur batas waktu dan jadwalkan istirahat.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">2</span><h3>Perundungan Siber</h3><p>Komentar atau pesan menyakitkan dapat berdampak pada korban.</p><p><strong class="detail-label">Pencegahan:</strong> Jangan ikut menyebarkan; simpan bukti, blokir, dan laporkan akun.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">3</span><h3>Berita Palsu</h3><p>Informasi yang tidak benar bisa menimbulkan salah paham.</p><p><strong class="detail-label">Pencegahan:</strong> Periksa sumber, tanggal, dan bandingkan dengan sumber tepercaya.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">4</span><h3>Kebocoran Privasi</h3><p>Unggahan dapat mengungkap data pribadi tanpa disadari.</p><p><strong class="detail-label">Pencegahan:</strong> Batasi informasi pribadi dan periksa pengaturan privasi.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">5</span><h3>Gangguan Konsentrasi</h3><p>Notifikasi berulang dapat mengganggu belajar atau bekerja.</p><p><strong class="detail-label">Pencegahan:</strong> Aktifkan mode fokus saat belajar.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">6</span><h3>Kurang Tidur</h3><p>Menggunakan gawai hingga larut dapat mengurangi waktu istirahat.</p><p><strong class="detail-label">Pencegahan:</strong> Jauhkan gawai sebelum waktu tidur.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">7</span><h3>Perbandingan Sosial</h3><p>Melihat unggahan terpilih orang lain bisa membuat kita merasa kurang percaya diri.</p><p><strong class="detail-label">Pencegahan:</strong> Ingat bahwa unggahan tidak menggambarkan seluruh kehidupan seseorang.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">8</span><h3>Penipuan Daring</h3><p>Akun palsu dapat menawarkan hadiah atau transaksi mencurigakan.</p><p><strong class="detail-label">Pencegahan:</strong> Jangan membagikan kode OTP, kata sandi, atau data pembayaran.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">9</span><h3>Jejak Digital</h3><p>Unggahan lama dapat tersimpan atau dibagikan kembali.</p><p><strong class="detail-label">Pencegahan:</strong> Pikirkan dampak sebelum mengunggah sesuatu.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">10</span><h3>Konflik dan Salah Paham</h3><p>Pesan singkat tanpa konteks dapat ditafsirkan berbeda.</p><p><strong class="detail-label">Pencegahan:</strong> Gunakan bahasa sopan dan klarifikasi dengan tenang.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">11</span><h3>Konten Tidak Sesuai</h3><p>Pengguna bisa menemukan konten yang tidak aman atau tidak cocok.</p><p><strong class="detail-label">Pencegahan:</strong> Gunakan fitur pembatasan, blokir, dan laporkan konten.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">12</span><h3>Informasi Berlebihan</h3><p>Terlalu banyak kabar dapat membuat pengguna kewalahan.</p><p><strong class="detail-label">Pencegahan:</strong> Pilih sumber dan waktu membaca informasi.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">13</span><h3>Interaksi Langsung Berkurang</h3><p>Terlalu fokus pada layar dapat mengurangi perhatian saat bersama orang lain.</p><p><strong class="detail-label">Pencegahan:</strong> Sisihkan waktu tanpa gawai saat berkumpul.</p></article>
+    <article class="card impact-card negative searchable"><span class="impact-number">14</span><h3>Belanja Impulsif</h3><p>Iklan dan tren dapat mendorong pembelian tanpa pertimbangan.</p><p><strong class="detail-label">Pencegahan:</strong> Bandingkan kebutuhan, harga, dan ulasan sebelum membeli.</p></article>
+  </div></div>
+</section>
+
+<section class="section-alt" id="perbandingan"><div class="container"><h2>Gunakan dengan Seimbang</h2><p class="section-intro">Dampak media sosial dipengaruhi oleh cara, tujuan, dan durasi penggunaannya.</p><div class="table-wrap"><table class="comparison-table"><thead><tr><th>Aspek</th><th>Penggunaan Bijak</th><th>Penggunaan Berlebihan</th></tr></thead><tbody><tr><td>Belajar</td><td>Mencari materi dan berdiskusi</td><td>Terus menggulir hingga tugas tertunda</td></tr><tr><td>Komunikasi</td><td>Menjaga hubungan</td><td>Mengabaikan orang di sekitar</td></tr><tr><td>Informasi</td><td>Memeriksa sumber</td><td>Langsung menyebarkan kabar</td></tr><tr><td>Privasi</td><td>Membatasi data pribadi</td><td>Mengunggah informasi sensitif</td></tr></tbody></table></div></div></section>
+
+<section id="tips"><div class="container"><h2>Tips Menggunakan Media Sosial dengan Bijak</h2><p class="section-intro">Mulai dari kebiasaan sederhana yang bisa dilakukan setiap hari.</p><div class="cards">
+  <article class="card searchable"><div class="tip-number">01</div><h3>Tetapkan Batas Waktu</h3><p>Tentukan waktu khusus untuk membuka media sosial agar kegiatan utama tetap berjalan.</p></article>
+  <article class="card searchable"><div class="tip-number">02</div><h3>Periksa Informasi</h3><p>Baca isi lengkap, cek sumber, dan bandingkan kabar sebelum membagikannya.</p></article>
+  <article class="card searchable"><div class="tip-number">03</div><h3>Lindungi Data Pribadi</h3><p>Gunakan kata sandi kuat, aktifkan verifikasi dua langkah, dan jangan bagikan kode rahasia.</p></article>
+  <article class="card searchable"><div class="tip-number">04</div><h3>Berkomunikasi dengan Sopan</h3><p>Pikirkan dampak komentar sebelum mengirim atau mengunggahnya.</p></article>
+  <article class="card searchable"><div class="tip-number">05</div><h3>Pilih Konten yang Bermanfaat</h3><p>Ikuti akun yang mendukung belajar, kreativitas, dan minat positif.</p></article>
+  <article class="card searchable"><div class="tip-number">06</div><h3>Seimbangkan Aktivitas</h3><p>Luangkan waktu untuk belajar, tidur cukup, bergerak, dan bertemu langsung dengan orang lain.</p></article>
+</div></div></section>
+
+<section id="statistik" class="section-alt"><div class="container"><h2>Ilustrasi Kebiasaan Digital</h2><p class="section-intro">Grafik berikut hanya ilustrasi untuk membantu memahami pilihan penggunaan, bukan hasil survei nyata.</p><div class="chart">
+  <div class="chart-row"><div class="chart-label"><span>Belajar dan mencari informasi</span><span>80%</span></div><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
+  <div class="chart-row"><div class="chart-label"><span>Komunikasi</span><span>70%</span></div><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
+  <div class="chart-row"><div class="chart-label"><span>Hiburan</span><span>65%</span></div><div class="bar"><div class="bar-fill" style="width:65%"></div></div></div>
+  <div class="chart-row"><div class="chart-label"><span>Memeriksa fakta sebelum membagikan</span><span>90%</span></div><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+  <p class="note">Angka persentase dibuat sebagai contoh visual, bukan statistik populasi.</p>
+</div></div></section>
+
+<section id="fakta-mitos"><div class="container"><h2>Fakta atau Mitos?</h2><p class="section-intro">Pilih jawaban untuk menguji pemahamanmu.</p><div class="card fact-card"><h3 id="fact-question">Semua informasi yang viral pasti benar.</h3><div class="fact-buttons"><button type="button" data-answer="mitos">Mitos</button><button type="button" data-answer="fakta">Fakta</button></div><p id="fact-feedback" aria-live="polite">Pilih salah satu jawaban.</p><button class="btn" id="fact-next" type="button">Pernyataan Berikutnya</button></div></div></section>
+
+<section id="kuis" class="section-alt"><div class="container"><h2>Kuis Media Sosial</h2><p class="section-intro">Jawab 10 pertanyaan berikut untuk menguji pemahamanmu.</p><div class="quiz-box"><div class="quiz-progress"><div id="quiz-progress-bar"></div></div><p id="quiz-number">Pertanyaan 1 dari 10</p><h3 id="quiz-question">Apa fungsi utama media sosial?</h3><div id="quiz-answers"></div><p class="quiz-feedback" id="quiz-feedback" aria-live="polite">Pilih jawaban yang paling tepat.</p><div class="quiz-controls"><button type="button" id="quiz-next" disabled>Berikutnya</button><button type="button" id="quiz-restart" class="btn-outline">Ulangi Kuis</button></div><p id="quiz-result" aria-live="polite"></p></div></div></section>
+
+<section id="anggota"><div class="container"><h2>Anggota Kelompok</h2><p class="section-intro">Tim penyusun website edukasi media sosial.</p><div class="member-grid">
+  <article class="member-card"><div class="avatar">M</div><h3>Marvel</h3><p>Anggota Kelompok</p></article>
+  <article class="member-card"><div class="avatar">E</div><h3>Edward</h3><p>Anggota Kelompok</p></article>
+  <article class="member-card"><div class="avatar">A</div><h3>Ainun</h3><p>Anggota Kelompok</p></article>
+  <article class="member-card"><div class="avatar">S</div><h3>Sutarni</h3><p>Anggota Kelompok</p></article>
+  <article class="member-card"><div class="avatar">N</div><h3>Nilla</h3><p>Anggota Kelompok</p></article>
+</div></div></section>
+
+<section id="sumber" class="section-alt"><div class="container"><h2>Sumber Bacaan</h2><p class="section-intro">Gunakan sumber tepercaya untuk mempelajari keamanan dan literasi digital lebih lanjut.</p><div class="cards">
+  <article class="card source-card"><h3>Kominfo</h3><p>Informasi dan edukasi terkait ruang digital Indonesia.</p><a href="https://www.komdigi.go.id/" target="_blank" rel="noopener noreferrer">Kunjungi situs resmi ↗</a></article>
+  <article class="card source-card"><h3>UNICEF</h3><p>Informasi mengenai keselamatan anak dan remaja di dunia digital.</p><a href="https://www.unicef.org/" target="_blank" rel="noopener noreferrer">Kunjungi situs resmi ↗</a></article>
+  <article class="card source-card"><h3>UNESCO</h3><p>Bahan mengenai literasi media dan informasi.</p><a href="https://www.unesco.org/" target="_blank" rel="noopener noreferrer">Kunjungi situs resmi ↗</a></article>
+</div></div></section>
+
+<section class="conclusion" id="kesimpulan"><div class="container"><h2>Kesimpulan</h2><p>Media sosial memiliki dampak positif dan negatif. Penggunaannya dapat membantu komunikasi, pembelajaran, kreativitas, dan penyebaran informasi, tetapi juga membawa risiko seperti hoaks, perundungan siber, dan kebocoran privasi. Karena itu, kita perlu menggunakannya secara seimbang, kritis, dan bertanggung jawab.</p><h3>Gunakan media sosial untuk berkembang, bukan untuk kehilangan kendali.</h3></div></section>
+</main>
+<footer><p>Website Edukasi: Media Sosial dan Dampaknya</p><p>Dibuat untuk tujuan pembelajaran.</p></footer>
+<button type="button" class="back-top" id="back-top" aria-label="Kembali ke atas">↑</button>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  // Semua bagian langsung terlihat. Tidak ada animasi reveal yang menunda konten.
+  $$('.reveal').forEach(section => section.classList.add('visible'));
+
+  // Menu ponsel
+  const menuButton = $('#menu-toggle');
+  const navLinks = $('#nav-links');
+  if (menuButton && navLinks) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('active');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? '✕' : '☰';
+    });
+    $$('#nav-links a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = '☰';
+    }));
+  }
+
+  // Mode gelap
+  const themeButton = $('#theme-toggle');
+  try {
+    if (localStorage.getItem('mediaSosialDarkMode') === 'yes') document.body.classList.add('dark-mode');
+  } catch (error) {}
+  const updateThemeIcon = () => { if (themeButton) themeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙'; };
+  updateThemeIcon();
+  themeButton?.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    try { localStorage.setItem('mediaSosialDarkMode', document.body.classList.contains('dark-mode') ? 'yes' : 'no'); } catch (error) {}
+    updateThemeIcon();
+  });
+
+  // Pencarian dengan debounce agar tidak memproses setiap ketikan terlalu sering
+  const searchInput = $('#search-input');
+  let searchTimer;
+  searchInput?.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      const query = searchInput.value.trim().toLocaleLowerCase('id');
+      $$('.searchable').forEach(card => {
+        card.hidden = query !== '' && !card.textContent.toLocaleLowerCase('id').includes(query);
+      });
+    }, 120);
+  });
+
+  // Progress bar dan tombol kembali ke atas: satu pembaruan per frame
+  const progress = $('#reading-progress');
+  const backTop = $('#back-top');
+  let scrollQueued = false;
+  const updateScrollUI = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+    if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+    backTop?.classList.toggle('show', window.scrollY > 500);
+    scrollQueued = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(updateScrollUI); }
+  }, { passive: true });
+  updateScrollUI();
+  backTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+
+  // Fakta atau mitos
+  const factItems = [
+    { q: 'Semua informasi yang viral pasti benar.', a: 'mitos', why: 'Informasi viral tetap perlu diperiksa melalui sumber tepercaya.' },
+    { q: 'Kata sandi dan kode OTP tidak boleh dibagikan kepada orang lain.', a: 'fakta', why: 'Data tersebut dapat digunakan untuk mengambil alih akun.' },
+    { q: 'Komentar di internet tidak memiliki dampak pada orang lain.', a: 'mitos', why: 'Komentar dapat memengaruhi perasaan dan keamanan orang lain.' },
+    { q: 'Kita sebaiknya memeriksa sumber sebelum membagikan berita.', a: 'fakta', why: 'Memeriksa sumber membantu mengurangi penyebaran informasi palsu.' }
+  ];
+  let factIndex = 0;
+  const factQuestion = $('#fact-question');
+  const factFeedback = $('#fact-feedback');
+  const renderFact = () => { if (factQuestion) factQuestion.textContent = factItems[factIndex].q; if (factFeedback) factFeedback.textContent = 'Pilih salah satu jawaban.'; };
+  $$('.fact-buttons button').forEach(button => button.addEventListener('click', () => {
+    const item = factItems[factIndex];
+    factFeedback.textContent = (button.dataset.answer === item.a ? 'Benar! ' : 'Belum tepat. ') + item.why;
+  }));
+  $('#fact-next')?.addEventListener('click', () => { factIndex = (factIndex + 1) % factItems.length; renderFact(); });
+
+  // Kuis interaktif
+  const questions = [
+    { q: 'Apa fungsi utama media sosial?', a: ['Menghubungkan dan memungkinkan interaksi pengguna', 'Menghapus semua informasi di internet', 'Menggantikan semua kegiatan belajar', 'Menjamin semua berita benar'], correct: 0 },
+    { q: 'Apa yang sebaiknya dilakukan sebelum membagikan berita?', a: ['Langsung meneruskan', 'Memeriksa sumber dan kebenarannya', 'Mengubah judul agar menarik', 'Menyembunyikan sumber'], correct: 1 },
+    { q: 'Informasi apa yang harus dijaga kerahasiaannya?', a: ['Hobi umum', 'Nama mata pelajaran', 'Kata sandi dan kode OTP', 'Judul buku favorit'], correct: 2 },
+    { q: 'Contoh dampak positif media sosial adalah...', a: ['Menyebarkan hoaks', 'Mendukung pembelajaran', 'Perundungan siber', 'Penipuan daring'], correct: 1 },
+    { q: 'Apa tindakan yang tepat saat mengalami perundungan siber?', a: ['Membalas dengan hinaan', 'Menyebarkan identitas orang', 'Menyimpan bukti dan melaporkan', 'Mengajak orang lain menyerang'], correct: 2 },
+    { q: 'Mengapa batas waktu penggunaan penting?', a: ['Agar kegiatan lain dan istirahat tetap seimbang', 'Agar tidak perlu belajar', 'Agar semua unggahan viral', 'Agar tidak perlu bertemu orang'], correct: 0 },
+    { q: 'Apa itu jejak digital?', a: ['Hanya riwayat langkah kaki', 'Rekam aktivitas yang ditinggalkan di dunia digital', 'Nama aplikasi baru', 'Koneksi internet'], correct: 1 },
+    { q: 'Jika menemukan akun yang mencurigakan, kita sebaiknya...', a: ['Memberikan kode OTP', 'Mengirim uang segera', 'Memeriksa dan melaporkan bila perlu', 'Membagikan data pribadi'], correct: 2 },
+    { q: 'Cara berkomunikasi yang baik di media sosial adalah...', a: ['Sopan dan menghargai orang lain', 'Menghina pendapat berbeda', 'Menyebar rahasia teman', 'Mengirim spam'], correct: 0 },
+    { q: 'Penggunaan media sosial yang sehat berarti...', a: ['Online sepanjang waktu', 'Mengabaikan tidur', 'Mengikuti semua tren', 'Seimbang, kritis, dan bertanggung jawab'], correct: 3 }
+  ];
+  let quizIndex = 0, quizScore = 0, quizAnswered = false;
+  const quizNumber = $('#quiz-number'), quizQuestion = $('#quiz-question'), quizAnswers = $('#quiz-answers');
+  const quizFeedback = $('#quiz-feedback'), quizNext = $('#quiz-next'), quizResult = $('#quiz-result'), quizProgress = $('#quiz-progress-bar');
+  function renderQuiz() {
+    quizAnswered = false;
+    const item = questions[quizIndex];
+    quizNumber.textContent = `Pertanyaan ${quizIndex + 1} dari ${questions.length}`;
+    quizQuestion.textContent = item.q;
+    quizAnswers.replaceChildren();
+    item.a.forEach((answer, index) => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.textContent = answer;
+      button.addEventListener('click', () => {
+        if (quizAnswered) return;
+        quizAnswered = true;
+        const correct = index === item.correct;
+        if (correct) quizScore++;
+        $$('#quiz-answers button').forEach((option, i) => {
+          option.disabled = true;
+          if (i === item.correct) option.classList.add('correct');
+          else if (i === index) option.classList.add('wrong');
+        });
+        quizFeedback.textContent = correct ? 'Benar! Jawabanmu tepat.' : `Belum tepat. Jawaban yang benar: ${item.a[item.correct]}.`;
+        quizNext.disabled = false;
+        quizNext.textContent = quizIndex === questions.length - 1 ? 'Lihat Hasil' : 'Berikutnya';
+      });
+      quizAnswers.appendChild(button);
+    });
+    quizFeedback.textContent = 'Pilih jawaban yang paling tepat.';
+    quizNext.disabled = true;
+    quizNext.textContent = quizIndex === questions.length - 1 ? 'Lihat Hasil' : 'Berikutnya';
+    quizProgress.style.width = `${(quizIndex / questions.length) * 100}%`;
+    quizResult.textContent = '';
+  }
+  quizNext?.addEventListener('click', () => {
+    if (!quizAnswered) return;
+    if (quizIndex < questions.length - 1) { quizIndex++; renderQuiz(); }
+    else {
+      quizProgress.style.width = '100%';
+      quizNumber.textContent = 'Kuis selesai';
+      quizQuestion.textContent = 'Terima kasih sudah mengerjakan kuis!';
+      quizAnswers.replaceChildren();
+      quizFeedback.textContent = 'Terus gunakan media sosial secara bijak.';
+      quizNext.disabled = true;
+      quizResult.textContent = `Nilai kamu: ${quizScore} dari ${questions.length} (${Math.round(quizScore / questions.length * 100)}%).`;
+    }
+  });
+  $('#quiz-restart')?.addEventListener('click', () => { quizIndex = 0; quizScore = 0; renderQuiz(); });
+  renderQuiz();
+})();
+</script>
+</body>
+</html>
